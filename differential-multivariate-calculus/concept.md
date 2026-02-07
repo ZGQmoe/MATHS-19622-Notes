@@ -73,9 +73,7 @@ $$
 If $f(x,y)$ has **continuous second-order partial derivatives** in a neighbourhood of $(a,b)$, then
 
 $$
-\frac{\partial^2 z}{\partial x \partial y}
-=
-\frac{\partial^2 z}{\partial y \partial x}
+\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial^2 z}{\partial y \partial x}
 $$
 
 ---
