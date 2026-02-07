@@ -10,7 +10,7 @@ $$
 z = f(x, y)
 $$
 
-Geometrically, this function can be **visualised as a surface** in 3D space with coordinates
+Geometrically, this function can be visualised as a **surface** in 3D space with coordinates
 
 $$
 (x, y, z)
@@ -24,9 +24,9 @@ Each point $(x, y)$ in the plane corresponds to a height $z$.
 
 ### 2.1 Definition
 
-Partial differentiation measures how the function changes **with respect to one variable**, while **treating the other variable as constant**.
+Partial differentiation measures how a function changes **with respect to one variable**, while **treating the other variables as constants**.
 
-For $z = f(x, y)$:
+For a function $z = f(x, y)$, the partial derivatives are
 
 $$
 \frac{\partial z}{\partial x},
@@ -44,22 +44,25 @@ $$
 | Partial derivative | — | $\dfrac{\partial y}{\partial x},\; y_x$ |
 | Generality | Limited | More general |
 
-**Important distinction**
+**Key distinctions**
 
-- A **derivative** applies to **single-variable** functions  
-- A **partial derivative** applies to **multivariable** functions  
+- A **derivative** applies to single-variable functions  
+- A **partial derivative** applies to multivariable functions  
 - A **differential** describes small changes (used later)
 
 ---
 
 ## 3. Higher-Order Partial Derivatives
 
-Second-order partial derivatives include:
+Second-order partial derivatives include
 
 $$
-\frac{\partial^2 z}{\partial x^2}, \quad
-\frac{\partial^2 z}{\partial y^2}, \quad
-\frac{\partial^2 z}{\partial x \partial y}, \quad
+\frac{\partial^2 z}{\partial x^2},
+\quad
+\frac{\partial^2 z}{\partial y^2},
+\quad
+\frac{\partial^2 z}{\partial x \partial y},
+\quad
 \frac{\partial^2 z}{\partial y \partial x}
 $$
 
@@ -67,7 +70,7 @@ $$
 
 ### 3.1 Mixed Partials (Clairaut’s Theorem)
 
-If the function $f(x,y)$ has **continuous second-order partial derivatives** in a neighbourhood of $(a,b)$, then
+If $f(x,y)$ has **continuous second-order partial derivatives** in a neighbourhood of $(a,b)$, then
 
 $$
 \frac{\partial^2 z}{\partial x \partial y}
@@ -85,9 +88,9 @@ $$
 z = f(x,y), \quad x = x(u,v), \quad y = y(u,v)
 $$
 
-Then $z$ depends on $u,v$ indirectly.
+Then $z$ depends on $u$ and $v$ indirectly.
 
-The chain rule gives:
+The chain rule gives
 
 $$
 \frac{\partial z}{\partial u}
@@ -96,6 +99,8 @@ $$
 +
 \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
 $$
+
+and
 
 $$
 \frac{\partial z}{\partial v}
@@ -111,10 +116,11 @@ $$
 
 ### 5.1 Jacobian Matrix
 
-For a transformation $(u,v) \mapsto (x,y)$:
+For a transformation $(u,v) \mapsto (x,y)$, the Jacobian matrix is
 
 $$
-J =
+J
+=
 \begin{pmatrix}
 \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
 \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
@@ -124,6 +130,8 @@ $$
 ---
 
 ### 5.2 Jacobian Determinant
+
+The determinant of the Jacobian matrix is
 
 $$
 \det(J)
@@ -136,20 +144,27 @@ $$
 \end{vmatrix}
 $$
 
-- Measures **local area scaling**
-- Appears in **change of variables** for integrals
+It represents:
+
+- Local **area scaling**
+- Orientation change
+- Appears in **change of variables** for multiple integrals
 
 ---
 
 ## 6. Total Differential (Small Changes)
 
-For small changes $dx, dy$, the total differential of $z = f(x,y)$ is:
+For small changes $dx$ and $dy$, the total differential of $z = f(x,y)$ is
 
 $$
-dz = \frac{\partial z}{\partial x} \, dx + \frac{\partial z}{\partial y} \, dy
+dz
+=
+\frac{\partial z}{\partial x}\,dx
++
+\frac{\partial z}{\partial y}\,dy
 $$
 
-This approximates the change in $z$ for small variations in $x,y$.
+This gives a linear approximation to the change in $z$.
 
 ---
 
@@ -163,7 +178,8 @@ $$
 \phi(x,y,z)
 $$
 
-Examples:
+Examples include:
+
 - Temperature distribution
 - Electric potential
 
@@ -179,7 +195,8 @@ $$
 \langle F_1, F_2, F_3 \rangle
 $$
 
-Examples:
+Examples include:
+
 - Velocity field of a fluid
 - Electric field
 
@@ -187,7 +204,7 @@ Examples:
 
 ## 8. Gradient
 
-The gradient of a scalar field $f(x,y,z)$ is defined as
+For a scalar field $f(x,y,z)$, the gradient is defined as
 
 $$
 \nabla f
@@ -199,17 +216,20 @@ $$
 \right\rangle
 $$
 
-### Geometric Meaning
+### Geometric Interpretation
 
-- Points in the **direction of maximum increase** of $f$
+- Points in the direction of **maximum increase** of $f$
 - Is **normal (perpendicular)** to level surfaces $f=\text{constant}$
 
 ---
 
-### 8.1 The Nabla Operator
+### 8.1 Nabla Operator
+
+The nabla operator is
 
 $$
-\nabla =
+\nabla
+=
 \left\langle
 \frac{\partial}{\partial x},
 \frac{\partial}{\partial y},
@@ -217,7 +237,8 @@ $$
 \right\rangle
 $$
 
-A **vector differential operator** used to define:
+It is a **vector differential operator** used to define:
+
 - Gradient
 - Divergence
 - Curl
@@ -226,7 +247,7 @@ A **vector differential operator** used to define:
 
 ## 9. Directional Derivative
 
-The directional derivative of $f$ at point $\mathbf{r}$ in the direction of unit vector $\mathbf{u}$ is:
+The directional derivative of $f$ at a point in the direction of a **unit vector** $\mathbf{u}$ is
 
 $$
 D_{\mathbf{u}} f
@@ -234,7 +255,9 @@ D_{\mathbf{u}} f
 \nabla f \cdot \mathbf{u}
 $$
 
-- Rate of change of $f$ along a given direction  
-- Maximum when $\mathbf{u}$ is parallel to $\nabla f$
+Properties:
+
+- Measures rate of change along a specified direction  
+- Maximised when $\mathbf{u}$ is parallel to $\nabla f$
 
 ---
