@@ -91,21 +91,13 @@ Then $z$ depends on $u$ and $v$ indirectly.
 The chain rule gives
 
 $$
-\frac{\partial z}{\partial u}
-=
-\frac{\partial z}{\partial x}\frac{\partial x}{\partial u}
-+
-\frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
+\frac{\partial z}{\partial u} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
 $$
 
 and
 
 $$
-\frac{\partial z}{\partial v}
-=
-\frac{\partial z}{\partial x}\frac{\partial x}{\partial v}
-+
-\frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
+\frac{\partial z}{\partial v} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial v} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
 $$
 
 ---
@@ -117,9 +109,7 @@ $$
 For a transformation $(u,v) \mapsto (x,y)$, the Jacobian matrix is
 
 $$
-J
-=
-\begin{pmatrix}
+J = \begin{pmatrix}
 \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
 \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
 \end{pmatrix}
@@ -132,11 +122,7 @@ $$
 The determinant of the Jacobian matrix is
 
 $$
-\det(J)
-=
-\frac{\partial(x,y)}{\partial(u,v)}
-=
-\begin{vmatrix}
+\det(J) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix}
 \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
 \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
 \end{vmatrix}
@@ -155,11 +141,7 @@ It represents:
 For small changes $dx$ and $dy$, the total differential of $z = f(x,y)$ is
 
 $$
-dz
-=
-\frac{\partial z}{\partial x}\,dx
-+
-\frac{\partial z}{\partial y}\,dy
+dz = \frac{\partial z}{\partial x}\,dx + \frac{\partial z}{\partial y}\,dy
 $$
 
 This gives a linear approximation to the change in $z$.
@@ -188,9 +170,7 @@ Examples include:
 A **vector field** assigns a vector to each point:
 
 $$
-\mathbf{F}(x,y,z)
-=
-\langle F_1, F_2, F_3 \rangle
+\mathbf{F}(x,y,z) = \langle F_1, F_2, F_3 \rangle
 $$
 
 Examples include:
@@ -205,9 +185,7 @@ Examples include:
 For a scalar field $f(x,y,z)$, the gradient is defined as
 
 $$
-\nabla f
-=
-\left\langle
+\nabla f = \left\langle
 \frac{\partial f}{\partial x},
 \frac{\partial f}{\partial y},
 \frac{\partial f}{\partial z}
@@ -226,9 +204,7 @@ $$
 The nabla operator is
 
 $$
-\nabla
-=
-\left\langle
+\nabla = \left\langle
 \frac{\partial}{\partial x},
 \frac{\partial}{\partial y},
 \frac{\partial}{\partial z}
@@ -248,9 +224,7 @@ It is a **vector differential operator** used to define:
 The directional derivative of $f$ at a point in the direction of a **unit vector** $\mathbf{u}$ is
 
 $$
-D_{\mathbf{u}} f
-=
-\nabla f \cdot \mathbf{u}
+D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}
 $$
 
 Properties:
