@@ -138,11 +138,7 @@ $$
 Relative error:
 
 $$
-\frac{dP}{P}
-=
--\frac{dr}{r}
-+
-2\frac{dv}{v}
+\frac{dP}{P} = -\frac{dr}{r} + 2\frac{dv}{v}
 $$
 
 ---
