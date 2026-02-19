@@ -80,19 +80,11 @@ $$
 Then:
 
 $$
-\frac{\partial z}{\partial u}
-=
-\frac{\partial z}{\partial x}\frac{\partial x}{\partial u}
-+
-\frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
+\frac{\partial z}{\partial u} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
 $$
 
 $$
-\frac{\partial z}{\partial v}
-=
-\frac{\partial z}{\partial x}\frac{\partial x}{\partial v}
-+
-\frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
+\frac{\partial z}{\partial v} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial v} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
 $$
 
 Interpretation:
@@ -106,10 +98,7 @@ Interpretation:
 If $z=f(x,y)$ and small changes $\Delta x, \Delta y$ occur:
 
 $$
-\Delta z \approx 
-\frac{\partial f}{\partial x}\Delta x
-+
-\frac{\partial f}{\partial y}\Delta y
+\Delta z \approx \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y
 $$
 
 In differential form:
@@ -143,10 +132,7 @@ $$
 Then:
 
 $$
-dP =
-\frac{\partial P}{\partial r} dr
-+
-\frac{\partial P}{\partial v} dv
+dP = \frac{\partial P}{\partial r} dr + \frac{\partial P}{\partial v} dv
 $$
 
 Relative error:
@@ -166,11 +152,7 @@ $$
 Worst case:
 
 $$
-\frac{\Delta P}{P}
-=
-\left| \frac{\Delta r}{r} \right|
-+
-2\left| \frac{\Delta v}{v} \right|
+\frac{\Delta P}{P}=\left| \frac{\Delta r}{r} \right| + 2\left| \frac{\Delta v}{v} \right|
 $$
 
 ---
@@ -180,13 +162,7 @@ $$
 If errors are independent:
 
 $$
-\left(\frac{\Delta P}{P}\right)_{\text{RMS}}
-=
-\sqrt{
-\left(\frac{\Delta r}{r}\right)^2
-+
-\left(2\frac{\Delta v}{v}\right)^2
-}
+\left(\frac{\Delta P}{P}\right)_{\text{RMS}}=\sqrt{ \left(\frac{\Delta r}{r}\right)^2 + \left(2\frac{\Delta v}{v}\right)^2}
 $$
 
 This is usually smaller than maximum error.
@@ -200,11 +176,7 @@ This is usually smaller than maximum error.
 For transformation $(u,v) \mapsto (x,y)$:
 
 $$
-J =
-\begin{pmatrix}
-x_u & x_v \\
-y_u & y_v
-\end{pmatrix}
+J = \begin{pmatrix} x_u & x_v \\ y_u & y_v \end{pmatrix}
 $$
 
 ---
@@ -212,12 +184,7 @@ $$
 ### 7.2 Jacobian Determinant
 
 $$
-\frac{\partial(x,y)}{\partial(u,v)}
-=
-\begin{vmatrix}
-x_u & x_v \\
-y_u & y_v
-\end{vmatrix}
+\frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} x_u & x_v \\ y_u & y_v \end{vmatrix}
 $$
 
 Meaning:
@@ -244,9 +211,7 @@ Examples: temperature, electric potential.
 ### Vector Field
 
 $$
-\mathbf{F}(x,y,z)
-=
-\langle F_1,F_2,F_3 \rangle
+\mathbf{F}(x,y,z) = \langle F_1,F_2,F_3 \rangle
 $$
 
 Assigns a vector to each point.
@@ -258,11 +223,7 @@ Examples: velocity field, electric field.
 ## 9. Gradient
 
 $$
-\nabla f
-=
-\left\langle
-f_x, f_y, f_z
-\right\rangle
+\nabla f = \left\langle f_x, f_y, f_z \right\rangle
 $$
 
 Properties:
@@ -278,9 +239,7 @@ Properties:
 For unit vector $\mathbf{u}$:
 
 $$
-D_{\mathbf{u}} f
-=
-\nabla f \cdot \mathbf{u}
+D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}
 $$
 
 Maximum occurs when:
