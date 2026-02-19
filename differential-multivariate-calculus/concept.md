@@ -4,19 +4,17 @@
 
 ## 1. Functions of Multiple Variables
 
-We consider a function of two variables
+A function of two variables:
 
 $$
-z = f(x, y)
+z = f(x,y)
 $$
 
-Geometrically, this function can be visualised as a **surface** in 3D space with coordinates
+Geometric interpretation:
 
-$$
-(x, y, z)
-$$
-
-Each point $(x, y)$ in the plane corresponds to a height $z$.
+- Graph is a **surface** in $\mathbb{R}^3$
+- Coordinates: $(x,y,z)$
+- Each $(x,y)$ corresponds to a height $z$
 
 ---
 
@@ -24,212 +22,277 @@ Each point $(x, y)$ in the plane corresponds to a height $z$.
 
 ### 2.1 Definition
 
-Partial differentiation measures how a function changes **with respect to one variable**, while **treating the other variables as constants**.
-
-For a function $z = f(x, y)$, the partial derivatives are
+For $z=f(x,y)$:
 
 $$
-\frac{\partial z}{\partial x},
-\quad
+\frac{\partial z}{\partial x}, 
+\qquad
 \frac{\partial z}{\partial y}
 $$
 
+Meaning:
+
+- Differentiate with respect to one variable  
+- Treat all other variables as constants  
+
 ---
 
-### 2.2 Notation and Terminology
+### 2.2 Derivative vs Differential
 
-| Concept | One variable | Multiple variables |
-|------|-------------|-------------------|
+| Concept | Single Variable | Multivariable |
+|----------|----------------|---------------|
 | Derivative | $\dfrac{dy}{dx}$ | — |
-| Partial derivative | — | $\dfrac{\partial y}{\partial x},\; y_x$ |
-| Generality | Limited | More general |
+| Partial derivative | — | $\dfrac{\partial z}{\partial x}$ |
+| Differential | $dy = f'(x)dx$ | $dz = f_x dx + f_y dy$ |
 
-**Key distinctions**
-
-- A **derivative** applies to single-variable functions  
-- A **partial derivative** applies to multivariable functions  
-- A **differential** describes small changes (used later)
+A **differential** describes small changes.
 
 ---
 
-## 3. Higher-Order Partial Derivatives
+## 3. Higher-Order Derivatives
 
-Second-order partial derivatives include
+Second-order partials:
 
 $$
-\frac{\partial^2 z}{\partial x^2},
-\quad
-\frac{\partial^2 z}{\partial y^2},
-\quad
-\frac{\partial^2 z}{\partial x \partial y},
-\quad
-\frac{\partial^2 z}{\partial y \partial x}
+f_{xx}, \quad f_{yy}, \quad f_{xy}, \quad f_{yx}
 $$
 
 ---
 
-### 3.1 Mixed Partials (Clairaut’s Theorem)
+### 3.1 Clairaut’s Theorem (Mixed Partials)
 
-If $f(x,y)$ has **continuous second-order partial derivatives** in a neighbourhood of $(a,b)$, then
+If second partial derivatives are continuous near $(a,b)$:
 
 $$
-\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial^2 z}{\partial y \partial x}
+f_{xy} = f_{yx}
 $$
 
 ---
 
 ## 4. Chain Rule (Multivariable)
 
-Let
+If
 
 $$
-z = f(x,y), \quad x = x(u,v), \quad y = y(u,v)
+z=f(x,y), \quad x=x(u,v), \quad y=y(u,v)
 $$
 
-Then $z$ depends on $u$ and $v$ indirectly.
-
-The chain rule gives
+Then:
 
 $$
-\frac{\partial z}{\partial u} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
+\frac{\partial z}{\partial u}
+=
+\frac{\partial z}{\partial x}\frac{\partial x}{\partial u}
++
+\frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
 $$
 
-and
+$$
+\frac{\partial z}{\partial v}
+=
+\frac{\partial z}{\partial x}\frac{\partial x}{\partial v}
++
+\frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
+$$
+
+Interpretation:
+
+- Sensitivity of $z$ to $u$ comes through both $x$ and $y$.
+
+---
+
+## 5. Total Differential (Small Changes)
+
+If $z=f(x,y)$ and small changes $\Delta x, \Delta y$ occur:
 
 $$
-\frac{\partial z}{\partial v} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial v} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
+\Delta z \approx 
+\frac{\partial f}{\partial x}\Delta x
++
+\frac{\partial f}{\partial y}\Delta y
+$$
+
+In differential form:
+
+$$
+dz = f_x dx + f_y dy
+$$
+
+More generally, for $f(x_1,\dots,x_n)$:
+
+$$
+dz = \sum_{k=1}^{n} \frac{\partial f}{\partial x_k} dx_k
+$$
+
+This is called the **total differential**.
+
+It gives a **linear approximation**.
+
+---
+
+## 6. Error Propagation (Important)
+
+If a quantity depends on measured variables:
+
+Example:
+
+$$
+P = \frac{v^2}{r}
+$$
+
+Then:
+
+$$
+dP =
+\frac{\partial P}{\partial r} dr
++
+\frac{\partial P}{\partial v} dv
+$$
+
+Relative error:
+
+$$
+\frac{dP}{P}
+=
+-\frac{dr}{r}
++
+2\frac{dv}{v}
 $$
 
 ---
 
-## 5. Jacobian Matrix and Determinant
+### 6.1 Maximum Relative Error
 
-### 5.1 Jacobian Matrix
-
-For a transformation $(u,v) \mapsto (x,y)$, the Jacobian matrix is
+Worst case:
 
 $$
-J = \begin{pmatrix}
-\dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
-\dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
+\frac{\Delta P}{P}
+=
+\left| \frac{\Delta r}{r} \right|
++
+2\left| \frac{\Delta v}{v} \right|
+$$
+
+---
+
+### 6.2 RMS (Expected) Relative Error
+
+If errors are independent:
+
+$$
+\left(\frac{\Delta P}{P}\right)_{\text{RMS}}
+=
+\sqrt{
+\left(\frac{\Delta r}{r}\right)^2
++
+\left(2\frac{\Delta v}{v}\right)^2
+}
+$$
+
+This is usually smaller than maximum error.
+
+---
+
+## 7. Jacobian
+
+### 7.1 Jacobian Matrix
+
+For transformation $(u,v) \mapsto (x,y)$:
+
+$$
+J =
+\begin{pmatrix}
+x_u & x_v \\
+y_u & y_v
 \end{pmatrix}
 $$
 
 ---
 
-### 5.2 Jacobian Determinant
-
-The determinant of the Jacobian matrix is
+### 7.2 Jacobian Determinant
 
 $$
-\det(J) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix}
-\dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
-\dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
+\frac{\partial(x,y)}{\partial(u,v)}
+=
+\begin{vmatrix}
+x_u & x_v \\
+y_u & y_v
 \end{vmatrix}
 $$
 
-It represents:
+Meaning:
 
-- Local **area scaling**
-- Orientation change
-- Appears in **change of variables** for multiple integrals
-
----
-
-## 6. Total Differential (Small Changes)
-
-For small changes $dx$ and $dy$, the total differential of $z = f(x,y)$ is
-
-$$
-dz = \frac{\partial z}{\partial x}\,dx + \frac{\partial z}{\partial y}\,dy
-$$
-
-This gives a linear approximation to the change in $z$.
+- Local area scaling factor
+- Used in change of variables
 
 ---
 
-## 7. Fields
+## 8. Scalar and Vector Fields
 
-### 7.1 Scalar Field
-
-A **scalar field** assigns a scalar value to each point in space:
+### Scalar Field
 
 $$
 \phi(x,y,z)
 $$
 
-Examples include:
+Assigns a scalar to each point.
 
-- Temperature distribution
-- Electric potential
-
----
-
-### 7.2 Vector Field
-
-A **vector field** assigns a vector to each point:
-
-$$
-\mathbf{F}(x,y,z) = \langle F_1, F_2, F_3 \rangle
-$$
-
-Examples include:
-
-- Velocity field of a fluid
-- Electric field
+Examples: temperature, electric potential.
 
 ---
 
-## 8. Gradient
-
-For a scalar field $f(x,y,z)$, the gradient is defined as
+### Vector Field
 
 $$
-\nabla f = \left\langle
-\frac{\partial f}{\partial x},
-\frac{\partial f}{\partial y},
-\frac{\partial f}{\partial z}
+\mathbf{F}(x,y,z)
+=
+\langle F_1,F_2,F_3 \rangle
+$$
+
+Assigns a vector to each point.
+
+Examples: velocity field, electric field.
+
+---
+
+## 9. Gradient
+
+$$
+\nabla f
+=
+\left\langle
+f_x, f_y, f_z
 \right\rangle
-$$
-
-### Geometric Interpretation
-
-- Points in the direction of **maximum increase** of $f$
-- Is **normal (perpendicular)** to level surfaces $f=\text{constant}$
-
----
-
-### 8.1 Nabla Operator
-
-The nabla operator is
-
-$$
-\nabla = \left\langle
-\frac{\partial}{\partial x},
-\frac{\partial}{\partial y},
-\frac{\partial}{\partial z}
-\right\rangle
-$$
-
-It is a **vector differential operator** used to define:
-
-- Gradient
-- Divergence
-- Curl
-
----
-
-## 9. Directional Derivative
-
-The directional derivative of $f$ at a point in the direction of a **unit vector** $\mathbf{u}$ is
-
-$$
-D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}
 $$
 
 Properties:
 
-- Measures rate of change along a specified direction  
-- Maximised when $\mathbf{u}$ is parallel to $\nabla f$
+- Points in direction of **maximum increase**
+- Perpendicular to level surfaces
+- Magnitude = maximum directional derivative
+
+---
+
+## 10. Directional Derivative
+
+For unit vector $\mathbf{u}$:
+
+$$
+D_{\mathbf{u}} f
+=
+\nabla f \cdot \mathbf{u}
+$$
+
+Maximum occurs when:
+
+$$
+\mathbf{u} \parallel \nabla f
+$$
+
+Maximum value:
+
+$$
+\max D_{\mathbf{u}} f = |\nabla f|
+$$
 
 ---
