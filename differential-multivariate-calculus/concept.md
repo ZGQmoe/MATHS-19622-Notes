@@ -251,3 +251,112 @@ $$
 $$
 
 ---
+
+## 11. Level Curves
+
+Level curve:
+
+$$
+f(x,y)=c
+$$
+
+Tangent direction $\mathbf{t}$:
+
+$$
+D_{\mathbf{t}}f=\nabla f\cdot \mathbf{t}=0
+$$
+
+Therefore:
+
+$$
+\nabla f \perp \text{level curve}
+$$
+
+Spacing:
+
+- Close curves → large $|\nabla f|$
+- Wide curves → small $|\nabla f|$
+
+---
+
+## 12. Stationary Points
+
+At local extremum:
+
+$$
+f_x(a,b)=0, \quad f_y(a,b)=0
+$$
+
+Equivalently:
+
+$$
+\nabla f(a,b)=\mathbf{0}
+$$
+
+Necessary, not sufficient.
+
+---
+
+## 13. Tangent Plane
+
+For $z=f(x,y)$ at $(x_0,y_0)$:
+
+$$
+z_0=f(x_0,y_0)
+$$
+
+$$
+z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)
+$$
+
+Linear (first-order) approximation.
+
+---
+
+## 14. Second-Order Taylor Expansion
+
+$$
+f(x,y)\approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)+\frac{1}{2}\left[f_{xx}(a,b)(x-a)^2+2f_{xy}(a,b)(x-a)(y-b)+f_{yy}(a,b)(y-b)^2\right]
+$$
+
+Quadratic terms determine curvature.
+
+---
+
+## 15. Global Extrema (Closed Region)
+
+1. Solve $\nabla f=0$ (interior)
+2. Evaluate boundary
+3. Check corner points
+4. Compare all values
+
+---
+
+## 16. Hessian Test
+
+Let $(a,b)$ be stationary.
+
+$$
+A=f_{xx}(a,b), \quad B=f_{xy}(a,b), \quad C=f_{yy}(a,b)
+$$
+
+$$
+D=AC-B^2
+$$
+
+Classification:
+
+- $D>0$, $A>0$ → local min  
+- $D>0$, $A<0$ → local max  
+- $D<0$ → saddle  
+- $D=0$ → inconclusive  
+
+---
+
+## 17. Geometric Interpretation
+
+- $\nabla f=0$ → flat tangent plane  
+- $D>0$ → same curvature sign  
+- $D<0$ → opposite curvature (saddle)  
+
+---
