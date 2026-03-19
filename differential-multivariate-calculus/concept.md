@@ -54,7 +54,7 @@ A **differential** describes small changes.
 Second-order partials:
 
 $$
-f_{xx}, \quad f_{yy}, \quad f_{xy}, \quad f_{yx}
+f_{xx} \quad f_{yy} \quad f_{xy} \quad f_{yx}
 $$
 
 ---
@@ -172,7 +172,11 @@ This is usually smaller than maximum error.
 For transformation $(u,v) \mapsto (x,y)$:
 
 $$
-J = \begin{pmatrix} x_u & x_v \\ y_u & y_v \end{pmatrix}
+J = \frac{\partial(x,y)}{\partial(u,v)} =
+\begin{bmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{bmatrix}
 $$
 
 ---
@@ -180,7 +184,7 @@ $$
 ### 7.2 Jacobian Determinant
 
 $$
-\frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} x_u & x_v \\ y_u & y_v \end{vmatrix}
+/det(J)
 $$
 
 Meaning:

@@ -1,4 +1,4 @@
-# Notes for MATHS19622 @UoM  written by a seal(:3 っ)∋
+# Notes for MATHS19622 @UoM  (:3 っ)∋
 
 > notes for MATHS19622
 
@@ -11,4 +11,4 @@ Thx(:3 っ)∋
 
 ## Scope
 
-## Differential Multivariate Calculus
+### Differential Multivariate Calculus
