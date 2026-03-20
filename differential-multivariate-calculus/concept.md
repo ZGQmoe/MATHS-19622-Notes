@@ -376,7 +376,10 @@ At a constrained extremum, assuming $\nabla g_1$ and $\nabla g_2$ are **linearly
 
 $$\nabla f = \lambda \nabla g_1 + \mu \nabla g_2$$
 
-> **Note:** This creates a system of 5 equations (3 from the gradient components and 2 from the constraints) to solve for $x, y, z, \lambda, \text{ and } \mu$.
+Together with the constraints:
+1. $\nabla f(x,y,z) = \lambda \nabla g_1(x,y,z) + \mu \nabla g_2(x,y,z)$
+2. $g_1(x,y,z) = 0$
+3. $g_2(x,y,z) = 0$
 
 ---
 
@@ -404,4 +407,69 @@ $$\nabla \cdot \mathbf{v} = \frac{\partial v_1}{\partial x} + \frac{\partial v_2
 | Value | Physical Meaning |
 | :--- | :--- |
 | **$\nabla \cdot \mathbf{v} > 0$** | **Source**: Local expansion |
-| **$\nabla \cdot \mathbf{v} < 0$** |
+| **$\nabla \cdot \mathbf{v} < 0$** | **Sink**: Local compression |
+| **$\nabla \cdot \mathbf{v} = 0$** | **Solenoidal**: Incompressible flow |
+
+**Electrostatics (Gauss's Law):**
+$$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$$
+
+---
+
+### 19.3 Curl ($\text{curl} \mathbf{v}$)
+A vector field representing the local rotation or "vorticity."
+$$\nabla \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \partial_x & \partial_y & \partial_z \\ v_1 & v_2 & v_3 \end{vmatrix}$$
+
+* **Direction:** The axis of rotation (via right-hand rule).
+* **Magnitude:** Proportional to the circulation density; $|\nabla \times \mathbf{v}|/2$ is the local angular velocity.
+
+**Electrostatics:**
+Since $\mathbf{E} = -\nabla \Phi$, it follows that:
+$$\nabla \times \mathbf{E} = \mathbf{0}$$
+
+---
+
+### 19.4 Laplacian ($\nabla^2$)
+The divergence of the gradient; represents the "average" value of a function relative to its neighbors.
+$$\nabla^2 f = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
+
+---
+
+### 19.5 Common PDE Applications
+
+| Name | Equation | Context |
+| :--- | :--- | :--- |
+| **Laplace** | $\nabla^2 \Phi = 0$ | Equilibrium/Steady-state |
+| **Poisson** | $\nabla^2 \Phi = -\frac{\rho}{\varepsilon_0}$ | Electrostatics with charge |
+| **Heat** | $\frac{\partial u}{\partial t} = \kappa \nabla^2 u$ | Thermal conduction |
+| **Diffusion**| $\frac{\partial c}{\partial t} = D \nabla^2 c$ | Particle spread |
+| **Wave** | $\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u$ | Propagation (sound, light) |
+
+---
+
+### 19.6 Operational Identities
+
+**Linearity**
+* $\nabla(f+g) = \nabla f + \nabla g$
+* $\nabla \cdot (\mathbf{F}+\mathbf{G}) = \nabla \cdot \mathbf{F} + \nabla \cdot \mathbf{G}$
+* $\nabla \times (\mathbf{F}+\mathbf{G}) = \nabla \times \mathbf{F} + \nabla \times \mathbf{G}$
+* $\nabla(kf) = k\nabla f$
+* $\nabla \cdot (k\mathbf{F}) = k \nabla \cdot \mathbf{F}$
+
+**Product & Chain Rules**
+* **Scalar Product:** $\nabla(fg) = f\nabla g + g\nabla f$
+* **Vector Product:** $\nabla \cdot (f\mathbf{F}) = f(\nabla \cdot \mathbf{F}) + (\nabla f) \cdot \mathbf{F}$
+* **Curl Product:** $\nabla \times (f\mathbf{F}) = f(\nabla \times \mathbf{F}) + (\nabla f) \times \mathbf{F}$
+* **Chain Rule:** $\nabla[h(f)] = h'(f)\nabla f$
+
+---
+
+### 19.7 Key Null Identities
+These are fundamental to vector field theory:
+1. **Curl of a Gradient:** $\nabla \times (\nabla f) = \mathbf{0}$ (Conservative fields are irrotational)
+2. **Divergence of a Curl:** $\nabla \cdot (\nabla \times \mathbf{F}) = 0$
+
+---
+
+### 19.8 Electrostatic Potential
+The Electric field $\mathbf{E}$ is the negative gradient of the potential $\Phi$:
+$$\mathbf{E} = -\nabla \Phi$$
