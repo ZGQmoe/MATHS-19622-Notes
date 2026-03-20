@@ -365,209 +365,112 @@ Classification:
 
 ---
 
-## 18. 2+ Constrained Optimisation (Lagrange Multipliers)
+# Vector Calculus & Optimization Reference
 
-Let
-$$
-f = f(x,y,z)
-$$
+## 18. Multi-Constrained Optimisation (Lagrange Multipliers)
 
-with constraints
-$$
-g_1(x,y,z) = 0, \quad g_2(x,y,z) = 0
-$$
+Let $f = f(x,y,z)$ be a function subject to two constraints:
+$$g_1(x,y,z) = 0, \quad g_2(x,y,z) = 0$$
 
-Assume
-$$
-\nabla g_1,\ \nabla g_2 \text{ are linearly independent}
-$$
+Assuming $\nabla g_1$ and $\nabla g_2$ are **linearly independent**, the constrained extremum occurs where the gradient of $f$ is a linear combination of the constraint gradients:
 
-At a constrained extremum:
-$$
-\nabla f = \lambda \nabla g_1 + \mu \nabla g_2
-$$
+$$\nabla f = \lambda \nabla g_1 + \mu \nabla g_2$$
 
-together with constraints:
-$$
-g_1(x,y,z) = 0, \quad g_2(x,y,z) = 0
-$$
+This results in a system of equations including the constraints:
+1. $\nabla f(x,y,z) = \lambda \nabla g_1(x,y,z) + \mu \nabla g_2(x,y,z)$
+2. $g_1(x,y,z) = 0$
+3. $g_2(x,y,z) = 0$
 
 ---
 
 ### 18.1 Geometric Interpretation
 
-$$
-\nabla f \in \text{span}\{\nabla g_1,\ \nabla g_2\}
-$$
+The condition implies that:
+$$\nabla f \in \text{span}\{\nabla g_1, \nabla g_2\}$$
 
-Equivalently:
-$$
-\nabla f \cdot \mathbf{t} = 0
-$$
-
-for any tangent vector $\mathbf{t}$ to the constraint surface.
-
-## 19. Vector Differential Operators
+Equivalently, the directional derivative of $f$ is zero along the intersection of the constraint surfaces:
+$$\nabla f \cdot \mathbf{t} = 0$$
+for any tangent vector $\mathbf{t}$ to the curve defined by the intersection of $g_1$ and $g_2$.
 
 ---
 
-### 19.1 Nabla Operator
+## 19. Vector Differential Operators
 
-$$
-\nabla = \mathbf{i}\frac{\partial}{\partial x} + \mathbf{j}\frac{\partial}{\partial y} + \mathbf{k}\frac{\partial}{\partial z}
-$$
+### 19.1 Nabla Operator ($\nabla$)
+The vector differential operator is defined as:
+$$\nabla = \mathbf{i}\frac{\partial}{\partial x} + \mathbf{j}\frac{\partial}{\partial y} + \mathbf{k}\frac{\partial}{\partial z}$$
 
-2D:
-$$
-\nabla = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}\right)
-$$
+In **2D**: $\nabla = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}\right)$
 
 ---
 
 ### 19.2 Divergence
+The divergence of a vector field $\mathbf{v}$ is a scalar field:
+$$\operatorname{div}\mathbf{v} = \nabla \cdot \mathbf{v} = \frac{\partial v_1}{\partial x} + \frac{\partial v_2}{\partial y} + \frac{\partial v_3}{\partial z}$$
 
-$$
-\operatorname{div}\mathbf{v} = \nabla \cdot \mathbf{v} = \frac{\partial v_1}{\partial x} + \frac{\partial v_2}{\partial y} + \frac{\partial v_3}{\partial z}
-$$
+**Physical Meaning:**
+* **$> 0$**: Source (Expansion)
+* **$< 0$**: Sink (Compression)
+* **$= 0$**: Solenoidal (Incompressible)
 
-2D:
-$$
-\nabla \cdot \mathbf{v} = \frac{\partial v_1}{\partial x} + \frac{\partial v_2}{\partial y}
-$$
-
-**Meaning**
-- $>0$: source (expansion)
-- $<0$: sink (compression)
-- $=0$: incompressible
-
-**Electrostatics**
-$$
-\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
-$$
+**Electrostatics:**
+$$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$$
 
 ---
 
 ### 19.3 Curl
+The curl of a vector field $\mathbf{v}$ measures local rotation:
+$$\operatorname{curl}\mathbf{v} = \nabla \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \partial_x & \partial_y & \partial_z \\ v_1 & v_2 & v_3 \end{vmatrix}$$
 
-$$
-\operatorname{curl}\mathbf{v} = \nabla \times \mathbf{v}
-$$
+**Physical Meaning:**
+* **Direction**: The axis of rotation.
+* **Magnitude**: Twice the local angular velocity ($|\nabla \times \mathbf{v}|/2$).
 
-$$
-\nabla \times \mathbf{v} =
-\begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\partial_x & \partial_y & \partial_z \\
-v_1 & v_2 & v_3
-\end{vmatrix}
-$$
-
-**Meaning**
-- Direction: axis of rotation  
-- Magnitude: $|\nabla \times \mathbf{v}|/2$
-
-**Electrostatics**
-$$
-\mathbf{E} = -\nabla \Phi \;\Rightarrow\; \nabla \times \mathbf{E} = 0
-$$
+**Electrostatics:**
+Since $\mathbf{E} = -\nabla \Phi$, it follows that:
+$$\nabla \times \mathbf{E} = 0$$
 
 ---
 
 ### 19.4 Laplacian
-
-$$
-\nabla^2 f = \nabla \cdot (\nabla f)
-$$
-
-$$
-\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
-$$
+The Laplacian is the divergence of the gradient:
+$$\nabla^2 f = \nabla \cdot (\nabla f) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
 
 ---
 
 ### 19.5 PDE Applications
 
-- Laplace:
-$$
-\nabla^2 \Phi = 0
-$$
-
-- Poisson:
-$$
-\nabla^2 \Phi = -\frac{\rho}{\varepsilon_0}
-$$
-
-- Heat:
-$$
-\frac{\partial u}{\partial t} = \kappa \nabla^2 u
-$$
-
-- Diffusion:
-$$
-\frac{\partial c}{\partial t} = D \nabla^2 c
-$$
-
-- Wave:
-$$
-\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
-$$
+| Equation Name | Formula |
+| :--- | :--- |
+| **Laplace** | $\nabla^2 \Phi = 0$ |
+| **Poisson** | $\nabla^2 \Phi = -\frac{\rho}{\varepsilon_0}$ |
+| **Heat** | $\frac{\partial u}{\partial t} = \kappa \nabla^2 u$ |
+| **Diffusion** | $\frac{\partial c}{\partial t} = D \nabla^2 c$ |
+| **Wave** | $\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u$ |
 
 ---
 
-### 19.6 Operator Properties
-
-$$
-\nabla(f+g) = \nabla f + \nabla g, \quad \nabla(kf) = k\nabla f
-$$
-
-$$
-\nabla \cdot (\mathbf{F}+\mathbf{G}) = \nabla \cdot \mathbf{F} + \nabla \cdot \mathbf{G}
-$$
-
-$$
-\nabla \times (\mathbf{F}+\mathbf{G}) = \nabla \times \mathbf{F} + \nabla \times \mathbf{G}
-$$
-
-$$
-\nabla \cdot (k\mathbf{F}) = k \nabla \cdot \mathbf{F}, \quad \nabla \times (k\mathbf{F}) = k \nabla \times \mathbf{F}
-$$
+### 19.6 Operator Properties (Linearity)
+* $\nabla(f+g) = \nabla f + \nabla g$
+* $\nabla \cdot (\mathbf{F}+\mathbf{G}) = \nabla \cdot \mathbf{F} + \nabla \cdot \mathbf{G}$
+* $\nabla \times (\mathbf{F}+\mathbf{G}) = \nabla \times \mathbf{F} + \nabla \times \mathbf{G}$
 
 ---
 
 ### 19.7 Product & Chain Rules
-
-$$
-\nabla(fg) = (\nabla f)g + f(\nabla g)
-$$
-
-$$
-\nabla \cdot (f\mathbf{F}) = (\nabla f)\cdot \mathbf{F} + f\nabla \cdot \mathbf{F}
-$$
-
-$$
-\nabla \times (f\mathbf{F}) = (\nabla f)\times \mathbf{F} + f\nabla \times \mathbf{F}
-$$
-
-$$
-\nabla[h(f)] = \frac{dh}{df}\nabla f
-$$
+* **Gradient of product**: $\nabla(fg) = (\nabla f)g + f(\nabla g)$
+* **Divergence of scaled vector**: $\nabla \cdot (f\mathbf{F}) = (\nabla f)\cdot \mathbf{F} + f\nabla \cdot \mathbf{F}$
+* **Curl of scaled vector**: $\nabla \times (f\mathbf{F}) = (\nabla f)\times \mathbf{F} + f\nabla \times \mathbf{F}$
+* **Chain Rule**: $\nabla[h(f)] = \frac{dh}{df}\nabla f$
 
 ---
 
 ### 19.8 Key Identities
-
-$$
-\nabla \times (\nabla f) = 0
-$$
-
-$$
-\nabla \cdot (\nabla \times \mathbf{F}) = 0
-$$
+1. **Curl of a Gradient**: $\nabla \times (\nabla f) = 0$ (Conservative fields are irrotational)
+2. **Divergence of a Curl**: $\nabla \cdot (\nabla \times \mathbf{F}) = 0$
 
 ---
 
 ### 19.9 Electrostatic Potential
-
-$$
-\mathbf{E} = -\nabla \Phi
-$$
+The Electric field $\mathbf{E}$ is the negative gradient of the potential $\Phi$:
+$$\mathbf{E} = -\nabla \Phi$$
