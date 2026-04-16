@@ -444,7 +444,12 @@ $$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$$
 A vector field representing the local rotation or "vorticity."
 
 $$
-\nabla \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \partial_x & \partial_y & \partial_z \\ v_1 & v_2 & v_3 \end{vmatrix}
+\nabla \times \mathbf{v} = 
+\begin{vmatrix} 
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\ 
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 
+v_x & v_y & v_z 
+\end{vmatrix}
 $$
 
 * **Direction:** The axis of rotation (via right-hand rule).
